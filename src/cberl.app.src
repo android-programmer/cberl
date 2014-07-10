@@ -9,6 +9,32 @@
                   poolboy,
                   jiffy
                  ]},
-  {mod, { cberl_app, []}},
-  {env, []}
+  {mod, {cberl_app, []}},
+  {env, [
+    {nodes, [
+
+      {us_chaatz_tables,[
+        {poolsize, 5},
+        {hostname, "us-couchbase.chaatz.com:8091"},
+        {bucket, "chaatz_tables"},
+        {pw, ""}]},
+
+      {us_2_chaatz_tables,[
+        {poolsize, 5},
+        {hostname, "us-couchbase-2.chaatz.com:8091"},
+        {bucket, "chaatz_tables"},
+        {pw, ""}]},
+
+      {ap_chaatz_tables,[
+        {poolsize, 5},
+        {hostname, "ap-couchbase.chaatz.com:8091"},
+        {bucket, "test_chaatz_tables"},
+        {pw, "4kPj@ntn"}]},
+
+      {ap_2_chaatz_tables,[
+        {poolsize, 5},
+        {hostname, "ap-couchbase-2.chaatz.com:8091"},
+        {bucket, "test_chaatz_tables"},
+        {pw, "4kPj@ntn"}]}
+    ]}]}
  ]}.

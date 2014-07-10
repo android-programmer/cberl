@@ -10,6 +10,7 @@
 %% ===================================================================
 
 start(_StartType, _StartArgs) ->
+  io:format("Line:~p~n",[?LINE]),
     cberl_sup:start_link().
 
 stop(_State) ->
