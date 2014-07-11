@@ -26,11 +26,14 @@ start() ->
   application:start(jiffy),
   application:start(cberl),
   {ok, Nodes} = application:get_env(cberl, nodes),
-  nodes_start_link(Nodes),
-  io:format("Nodes:~p~n", [Nodes]).
+  nodes_start_link(Nodes).
+%%   io:format("Nodes:~p~n", [Nodes]).
 
 nodes_start_link(Nodes) when is_list(Nodes) ->
-  [ start_link(Node,PoolSize,Host,Bucket,Pw,Bucket)|| {Node,[{poolsize,PoolSize},{hostname,Host},{bucket,Bucket},{pw,Pw}]} <- Nodes ].
+  ets:new(cb_nodes,[ordered_set, protected, named_table]),
+
+  [ start_link(Node,PoolSize,Host,Bucket,Pw,Bucket)|| {Node,[{poolsize,PoolSize},{hostname,Host},{bucket,Bucket},{pw,Pw}]} <- Nodes ],
+  [ ets:insert(cb_nodes,{Node,PoolSize,Host,Bucket,Pw,Bucket})|| {Node,[{poolsize,PoolSize},{hostname,Host},{bucket,Bucket},{pw,Pw}]} <- Nodes ].
 
 %% @equiv start_link(PoolName, NumCon, "localhost:8091", "", "", "")
 start_link(PoolName, NumCon) ->

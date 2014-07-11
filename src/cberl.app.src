@@ -15,26 +15,21 @@
 
       {us_chaatz_tables,[
         {poolsize, 5},
-        {hostname, "us-couchbase.chaatz.com:8091"},
+        {hostname, "us-couchbase.chaatz.com;us-couchbase-2.chaatz.com"},
         {bucket, "chaatz_tables"},
-        {pw, ""}]},
+        {pw, "4kPj@ntn"}]},
 
-      {us_2_chaatz_tables,[
+      {us_country_codes,[
         {poolsize, 5},
-        {hostname, "us-couchbase-2.chaatz.com:8091"},
-        {bucket, "chaatz_tables"},
-        {pw, ""}]},
+        {hostname, "us-couchbase.chaatz.com:8091"},
+        {bucket, "country_codes"},
+        {pw, "test1234"}]},
 
       {ap_chaatz_tables,[
         {poolsize, 5},
-        {hostname, "ap-couchbase.chaatz.com:8091"},
-        {bucket, "test_chaatz_tables"},
-        {pw, "4kPj@ntn"}]},
-
-      {ap_2_chaatz_tables,[
-        {poolsize, 5},
-        {hostname, "ap-couchbase-2.chaatz.com:8091"},
+        {hostname, "ap-couchbase.chaatz.com;ap-couchbase-2.chaatz.com;ap-1405.chaatz.com:8091"},
         {bucket, "test_chaatz_tables"},
         {pw, "4kPj@ntn"}]}
+
     ]}]}
  ]}.
